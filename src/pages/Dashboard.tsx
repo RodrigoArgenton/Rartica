@@ -1,5 +1,6 @@
 import { Button } from "../ui/Button";
-import { Card, CardHistory } from "../ui/Card";
+import { Card } from "../ui/Card";
+import { Table } from "../ui/Table";
 
 const exampleHistory = [
   { customer: "John Doe", status: "Nova venda registrada", value: "$100.00", time: "2h ago" },
@@ -31,7 +32,7 @@ export default function Dashboard() {
             <Card variant="return" title="Próximos do retorno anual" value="23" />
           </div>
           <div>
-            <CardHistory history={exampleHistory} className="mt-10" />
+            <Table history={exampleHistory} className="mt-10" />
           </div>
         </div>
       </div>

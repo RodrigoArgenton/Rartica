@@ -13,16 +13,6 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   value: string;
 }
-interface HistoryItem {
-  customer: string;
-  status: string;
-  value: string;
-  time: string;
-}
-
-interface CardHistoryProps extends React.HTMLAttributes<HTMLDivElement> {
-  history: HistoryItem[];
-}
 
 const baseStyles = "rounded-xl shadow-sm p-6 flex flex-col max-w-lg gap-4";
 
@@ -58,9 +48,6 @@ const variantConfig: Record<CardVariant, {
   },
 };
 
-const historyStyles =
-  "bg-white text-gray-800 rounded-xl shadow-sm p-4 w-full"
-
 export function Card({
   variant = "customers",
   title,
@@ -89,41 +76,3 @@ export function Card({
   );
 }
 
-export function CardHistory({
-  history,
-  className = "",
-  ...props
-}: CardHistoryProps) {
-
-  const limitedHistory = history.slice(0, 5);
-
-  return (
-    <div
-      className={`${historyStyles} ${className}`}
-      {...props}
-    >
-      <h2 className="text-xl font-semibold mb-4">
-        Atividade Recente
-      </h2>
-
-      <div>
-        {limitedHistory.map((item, index) => (
-          <div
-            key={index}
-            className="flex justify-between items-center py-2 border-b border-gray-200 last:border-none"
-          >
-            <div>
-              <p className="font-medium">{item.customer}</p>
-              <p className="text-sm text-gray-500">{item.status}</p>
-            </div>
-
-            <div className="text-sm text-gray-500 text-right">
-              <p>{item.value}</p>
-              <p>{item.time}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
