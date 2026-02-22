@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  rartica:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:4173"
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      - DATABASE_URL=postgresql://rartica:rartica123@postgres:5432/rartica
+
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=rartica
+      - POSTGRES_PASSWORD=rartica123
+      - POSTGRES_DB=rartica
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
