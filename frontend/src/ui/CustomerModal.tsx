@@ -61,7 +61,7 @@ export function CustomerModal({
         className="absolute inset-0 bg-black/50"
         onClick={onClose}
       />
-      <div className="relative bg-white rounded-lg shadow-xl max-w-[500px] w-full mx-4 p-6">
+      <div className="relative bg-white rounded-lg shadow-xl max-w-125 w-full mx-4 p-6">
         <h2 className="text-xl font-semibold mb-6">
           {isEditMode ? "Editar Cliente" : "Novo Cliente"}
         </h2>
