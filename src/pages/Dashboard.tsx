@@ -1,5 +1,6 @@
 import { Button } from "../ui/Button";
 import { Card, CardHistory } from "../ui/Card";
+
 const exampleHistory = [
   { customer: "John Doe", status: "Nova venda registrada", value: "$100.00", time: "2h ago" },
   { customer: "Jane Smith", status: "Nova venda registrada", value: "$150.00", time: "1h ago" },
@@ -12,7 +13,7 @@ const exampleHistory = [
 export default function Dashboard() {
   return (
     <div className="p-4 bg-gray-100 min-h-screen">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="flex justify-between">
           <div>
             <h1 className="text-2xl font-semibold">Olá, Ótica Visão Clara</h1>
